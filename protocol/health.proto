@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package health;
+
+import "google/protobuf/Empty.proto";
+
+message PongResponse {
+  int32 State = 1;
+  repeated string Dependencies = 2;
+  int32 ErrorCount = 3;
+}
+
+service PingPongService {
+  rpc PingPong (google.protobuf.Empty) returns (PongResponse);
+}

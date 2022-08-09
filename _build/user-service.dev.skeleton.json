@@ -1,0 +1,31 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "user-service-development",
+      "image": "864038710441.dkr.ecr.ap-southeast-1.amazonaws.com/user-service:latest-dev",
+      "cpu": 0,
+      "memory": 256,
+      "portMappings": [
+        {
+          "containerPort": 8080
+        }
+      ],
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 4096,
+          "hardLimit": 4096
+        }
+      ],
+      "dockerLabels" : {
+        "container" : "user-service-development",
+        "environment" : "development"
+      },
+      "logConfiguration" : {
+        "logDriver": "json-file",
+        "options": {
+          "labels" : "container,environment"
+        }
+      }
+    }]      
+}

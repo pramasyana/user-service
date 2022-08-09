@@ -1,0 +1,578 @@
+[
+    {
+        "id": "add_merchant_params_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema add merchant v2",
+        "type": "object",
+        "properties": {
+            "businessType": {
+                "type": "string"
+            },
+            "merchantName": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            },
+            "phoneNumber": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 15
+            },
+            "merchantAddress": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":5,
+                        "maxLength":255
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]                 
+            },
+            "merchantDescription": {
+                "type": "string",
+                "maxLength": 255
+            },
+            "companyName": {
+                "type": "string",
+                "min":3,
+                "max":200
+            },
+            "isPKP": {
+                "type": "boolean"
+            },
+            "isActive": {
+                "type": "boolean"
+            },
+            "pic": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            },
+            "picOccupation": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 100
+            },
+            "mobilePhoneNumber": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 13
+            },
+            "picKtpFile": {
+                "type": "string"
+            },
+            "dailyOperationalStaff": {
+                "type": "string",
+                "min":3,
+                "max":250
+            },
+            "npwp": {
+                "type": "string"
+            },
+            "npwpHolderName": {
+                "type": "string"
+            },
+            "npwpFile": {
+                "type": "string"
+            },
+            "bankId": {
+                "type": "integer"
+            },
+            "bankBranch": {
+                "type": "string"
+            },
+            "accountNumber": {
+                "type": "string",
+                "minLength": 9
+            },
+            "accountHolderName": {
+                "type": "string"
+            }
+        },
+        "required": ["businessType", "merchantName", "phoneNumber", "merchantDescription", 
+            "isPKP" , "pic", "picOccupation", "mobilePhoneNumber", "npwpHolderName", "npwp", 
+            "npwpFile", "bankId", "bankBranch", "accountNumber", "accountHolderName"]
+    },
+    {
+        "id": "update_merchant_params_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema update merchant v2 cms",
+        "type": "object",
+        "properties": {
+            "businessType": {
+                "type": "string",
+                "enum":["perorangan","perusahaan"]
+            },
+            "phoneNumber": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 15
+            },
+            "merchantAddress": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":5,
+                        "maxLength":255
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]
+                
+            },
+            "merchantDescription": {
+                "type": "string",
+                "maxLength": 255
+            },
+            "companyName": {
+                "anyOf": [
+                {
+                    "type": "null"
+                }, {
+                    "type": "string",
+                    "minLength":3,
+                    "maxLength":200
+                }, {
+                    "type": "string",
+                    "maxLength":0
+                }]                
+            },
+            "isPKP": {
+                "type": "boolean"
+            },
+            "isActive": {
+                "type": "boolean"
+            },
+            "pic": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200,
+                "format":"regex"
+            },
+            "picOccupation": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 100
+            },
+            "mobilePhoneNumber": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 13
+                
+            },
+            "picKtpFile": {
+                "type": "string"
+            },
+            "dailyOperationalStaff": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":3,
+                        "maxLength":250
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]                  
+            },
+            "npwp": {
+                "type": "string",
+                "minLength":15,
+                "maxLength":15
+            },
+            "npwpHolderName": {
+                "type": "string",
+                "minLength":3,
+                "maxLength":200
+            },
+            "npwpFile": {
+                "type": "string"
+            },
+            "bankId": {
+                "type": "integer"
+            },
+            "bankBranch": {
+                "type": "string"
+            },
+            "accountNumber": {
+                "type": "string",
+                "minLength": 9
+            },
+            "accountHolderName": {
+                "type": "string"
+            },
+            "merchantCategory": {
+                "type": "string"
+            },
+            "productType":{
+                "type":"string",
+                "enum":["PHYSIC","NON_PHYSIC", "PHYSIC_NON_PHYSIC",""]
+            }
+        },
+        "required": ["businessType", "phoneNumber", "merchantDescription", 
+            "isPKP" , "pic", "picOccupation", "mobilePhoneNumber", "npwpHolderName", "npwp", 
+            "npwpFile", "bankId", "bankBranch", "accountNumber", "accountHolderName"]
+    },
+    {
+        "id": "create_merchant_params",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema create merchant from cms",
+        "type": "object",
+        "properties": {
+            "businessType": {
+                "type": "string",
+                "enum":["perorangan","perusahaan"]
+            },
+            "merchantName": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            },
+            "merchantEmail": {
+                "type": "string",
+                "format": "email"
+            },
+            "phoneNumber": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 15
+            },
+            "merchantAddress": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":5,
+                        "maxLength":255
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]                 
+            },
+            "merchantDescription": {
+                "type": "string",
+                "maxLength": 255
+            },
+            "companyName": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":3,
+                        "maxLength":200
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }] 
+            },
+            "isPKP": {
+                "type": "boolean"
+            },
+            "isActive": {
+                "type": "boolean"
+            },
+            "pic": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            },
+            "picOccupation": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 100
+            },
+            "mobilePhoneNumber": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 13
+            },
+            "picKtpFile": {
+                "type": "string"
+            },
+            "dailyOperationalStaff": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":3,
+                        "maxLength":250
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]                  
+            },
+            "npwp": {
+                "type": "string"
+            },
+            "npwpHolderName": {
+                "type": "string"
+            },
+            "npwpFile": {
+                "type": "string"
+            },
+            "bankId": {
+                "type": "integer"
+            },
+            "bankBranch": {
+                "type": "string"
+            },
+            "accountNumber": {
+                "type": "string",
+                "minLength": 9
+            },
+            "accountHolderName": {
+                "type": "string"
+            },
+            "genderPic": {
+                "type": "string",
+                "enum":["MALE", "FEMALE","SECRET"]
+            },
+            "merchantType": {
+                "type": "string",
+                "enum":["REGULAR","MANAGE","ASSOCIATE"]
+            },
+            "merchantGroup": {
+                "type": "string",
+                "enum":["MICRO","SMALL","MEDIUM","COMPANY"]
+            }
+        },
+        "required": ["businessType", "merchantName", "merchantEmail", "genderPic", "isPKP", "isActive"]
+    },
+    {
+        "id": "self_update_merchant_params_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema self-update merchant v2",
+        "type": "object",
+        "properties": {
+            "businessType": {
+                "type": "string",
+                "enum":["perorangan","perusahaan"]
+            },
+            "merchantLogo": {
+                "type": "string"
+            },
+            "merchantGroup": {
+                "type": "string"
+            },
+            "phoneNumber": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 15
+            },
+            "mobilePhoneNumber": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 13
+            },
+            "merchantDescription": {
+                "type": "string",
+                "maxLength": 255
+            },
+            "storeProvinceId": {
+                "type": "string"
+            },
+            "storeCityId": {
+                "type": "string"
+            },
+            "storeDistrictId": {
+                "type": "string"
+            },
+            "storeActiveShippingDate": {
+                "type": "string"
+            },
+            "storeVillageId": {
+                "type": "string"
+            },
+            "storeZipCode": {
+                "type": "string"
+            },
+            "storeAddress": {
+                "type": "string"
+            },
+            "companyName": {
+                "anyOf": [
+                {
+                    "type": "null"
+                }, {
+                    "type": "string",
+                    "minLength":3,
+                    "maxLength":200
+                }, {
+                    "type": "string",
+                    "maxLength":0
+                }]
+            },
+            "legalEntity": {
+                "type": "integer"
+            },
+            "numberofEmployee": {
+                "type": "integer"
+            },
+            "merchantAddress": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":5,
+                        "maxLength":255
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]
+            },
+            "merchantVillageId": {
+                "type": "string"
+            },
+            "merchantVillage": {
+                "type": "string"
+            },
+            "merchantDistrictId": {
+                "type": "string"
+            },
+            "merchantDistrict": {
+                "type": "string"
+            },
+            "merchantCityId": {
+                "type": "string"
+            },
+            "merchantCity": {
+                "type": "string"
+            },
+            "merchantProvinceId": {
+                "type": "string"
+            },
+            "merchantProvince": {
+                "type": "string"
+            },
+            "zipCode": {
+                "type": "string"
+            },
+            "npwp": {
+                "type": "string",
+                "minLength":15,
+                "maxLength":15
+            },
+            "npwpHolderName": {
+                "type": "string",
+                "minLength":3,
+                "maxLength":200
+            },
+            "npwpFile": {
+                "type": "string"
+            },
+
+            "pic": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            },
+            "genderPic": {
+                "type": "string"
+            },
+            "picOccupation": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 100
+            },
+            "dailyOperationalStaff": {
+                "anyOf": [
+                    {
+                        "type": "null"
+                    }, {
+                        "type": "string",
+                        "minLength":3,
+                        "maxLength":250
+                    }, {
+                        "type": "string",
+                        "maxLength":0
+                    }]
+            },
+            "picKtpFile": {
+                "type": "string"
+            },
+
+            "accountNumber": {
+                "type": "string",
+                "minLength": 9
+            },
+            "accountHolderName": {
+                "type": "string"
+            },
+            "bankBranch": {
+                "type": "string"
+            },
+            "bankId": {
+                "type": "integer"
+            },
+            "isPKP": {
+                "type": "boolean"
+            },
+            "isActive": {
+                "type": "boolean"
+            },
+            "productType":{
+                "type":"string",
+                "enum":["PHYSIC","NON_PHYSIC", "PHYSIC_NON_PHYSIC",""]
+            },
+            "merchantType": {
+                "type": "string",
+                "enum":["REGULAR","MANAGE","ASSOCIATE"]
+            }
+        },
+        "required": ["businessType", "phoneNumber", "merchantDescription",
+            "isPKP" , "pic", "picOccupation", "mobilePhoneNumber", "npwpHolderName", "npwp",
+            "npwpFile", "bankId", "bankBranch", "accountNumber", "accountHolderName"]
+    },
+    {
+        "id": "self_update_merchant_partial_params_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema self-update merchant partial v2",
+        "type": "object",
+        "properties": {
+            "merchantName": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 200
+            }
+        }
+    },
+    {
+        "id": "add_merchant_pic_params_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema self-update merchant partial v2",
+        "type": "object",
+        "properties": {
+            "sellerOfficerName": {
+                "type": "string",
+                "maxLength":50
+            },
+            "sellerOfficerEmail":{
+                "type":"string",
+                "maxLength":100
+            }
+        }
+    },
+    {
+        "id": "get_merchant_param_v2",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema self-update merchant partial v2",
+        "type": "object",
+        "properties": {
+            "isAttachment": {
+                "type": "string",
+                "maxLength":50,
+                "enum":["true","","false"]
+            }
+        }
+    }
+]

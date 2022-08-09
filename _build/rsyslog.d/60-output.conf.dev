@@ -1,0 +1,3 @@
+# This line sends all lines to defined IP address at port 10514,
+# using the "json-template" format template
+*.*                         @@logstash.bhinnekalocal.com:30003;json-template

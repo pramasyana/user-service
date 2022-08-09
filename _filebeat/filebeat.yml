@@ -1,0 +1,21 @@
+###################### Filebeat Configuration Example #########################
+ 
+# This file is an example configuration file highlighting only the most common
+# options. The filebeat.full.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+#=========================== Filebeat prospectors =============================
+ 
+filebeat.prospectors:
+  - input_type: log
+    paths:
+      - /var/lib/docker/containers/**/*.log
+    json.keys_under_root: true
+    json.add_error_key: true
+    json.message_key: log
+  output.elasticsearch:
+    hosts: ["http://es.bhinneka.com:9200"]
+    index: user-service-filebeat

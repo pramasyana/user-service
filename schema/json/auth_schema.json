@@ -1,0 +1,76 @@
+[
+    {
+        "id": "auth_get_token_ldap_params",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema get token ldap",
+        "type": "object",
+        "properties": {
+            "grantType": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "email": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "password": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "deviceId": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "deviceLogin":{
+                "type": "string",
+                "maxLength": 50
+            }
+
+        },
+        "required": ["grantType", "email", "password", "deviceId", "deviceLogin"]
+    },
+    {
+        "id": "auth_get_token_pass_params",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema get token password",
+        "type": "object",
+        "properties": {
+            "grantType": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "email": {
+                "type": "string",
+                "maxLength": 50,
+                "format": "email"
+            },
+            "password": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "deviceId": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "deviceLogin":{
+                "type": "string",
+                "maxLength": 50
+            }
+        },
+        "required": ["grantType", "email", "password", "deviceId", "deviceLogin"]
+    },
+    {
+        "id": "check_email_param",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema check email",
+        "type": "object",
+        "properties": {
+            "userType":{
+                "type":"string",
+                "maxLength": 50,
+                "enum":["personal","corporate",""]
+            }
+        },
+        "required": ["userType"]
+    }
+]

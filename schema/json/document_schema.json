@@ -1,0 +1,32 @@
+[
+	{
+		"id": "add_document_params_v2",
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"description": "schema add document v2",
+		"type": "object",
+		"properties": {
+			"documentType": {
+				"type": "string",
+				"maxLength": 50
+			},
+			"documentFile": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"title": {
+				"type": "string",
+				"minLength": 3,
+				"maxLength": 50
+			},
+			"number": {
+				"type": "string",
+				"maxLength": 50
+			},
+			"description": {
+				"type": "string",
+				"maxLength": 255
+			}
+		},
+		"required": ["documentType", "documentFile", "title"]
+	}
+]

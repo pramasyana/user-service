@@ -1,0 +1,24 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "user-service-production",
+      "image": "864038710441.dkr.ecr.ap-southeast-1.amazonaws.com/user-service:latest-production",
+      "cpu": 0,
+      "memoryReservation": 256,
+      "portMappings": [
+        {
+          "containerPort": 8080
+        }
+      ],
+      "dockerLabels" : {
+        "container" : "user-service-production",
+        "environment" : "production"
+      },
+      "logConfiguration" : {
+        "logDriver": "json-file",
+        "options": {
+          "labels" : "container,environment"
+        }
+      }
+    }]      
+}

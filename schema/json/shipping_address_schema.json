@@ -1,0 +1,90 @@
+[
+	{
+		"id": "add_shipping_address_params_v2",
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"description": "schema add shipping address v2",
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"minLength": 3,
+				"maxLength": 50
+			},
+			"label": {
+				"type": "string",
+				"minLength": 5,
+				"maxLength": 50
+			},
+			"mobile": {
+				"type": "string",
+				"minLength": 10,
+				"maxLength": 13
+			},
+			"phone": {
+				"type": "string",
+				"maxLength": 15
+			},
+			"street1": {
+				"type": "string",
+				"maxLength": 255,
+				"minLength": 5
+			},
+			"street2": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"postalCode": {
+				"type": "string",
+				"maxLength": 5,
+				"minLength": 5
+			},
+			"subdistrictId": {
+				"type": "string"
+			},
+			"subdistrictName": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"districtId": {
+				"type": "string"
+			},
+			"districtName": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"cityId": {
+				"type": "string"
+			},
+			"cityName": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"provinceId": {
+				"type": "string"
+			},
+			"provinceName": {
+				"type": "string",
+				"maxLength": 255
+			},
+			"ext": {
+				"type": "string",
+				"maxLength": 255
+			}
+		},
+		"required": [
+			"name",
+			"label",
+			"mobile",
+			"street1",
+			"postalCode",
+			"subdistrictId",
+			"subdistrictName",
+			"districtId",
+			"districtName",
+			"cityId",
+			"cityName",
+			"provinceId",
+			"provinceName"
+		]
+	}
+]

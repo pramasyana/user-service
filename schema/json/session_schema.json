@@ -1,0 +1,35 @@
+[
+    {
+        "id": "session_get_list_params",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "description": "schema params get list session",
+        "type": "object",
+        "properties": {
+            "query": {
+                "type": "string",
+                "maxLength": 100
+            },
+            "page": {
+                "type": "string",
+                "maxLength": 50,
+                "default":"1",
+                "pattern": "^[0-9]*$"
+            },
+            "limit": {
+                "type": "string",
+                "maxLength": 50,
+                "default":"10",
+                "pattern": "^[0-9]*$"
+            },
+            "sort": {
+                "type": "string",
+                "maxLength": 50
+            },
+            "orderBy": {
+                "type": "string",
+                "maxLength": 100
+            }
+
+        }
+    }
+]

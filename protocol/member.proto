@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package member;
+
+message ResponseMessage {
+    string Message = 1;
+    string Email = 2;
+    string FirstName = 3;
+    string LastName = 4;
+}
+
+message MemberQuery {
+    string ID = 1;
+    string JWT = 2;
+}
+
+message MemberRegister {
+    string FirstName = 1;
+    string LastName = 2;
+    string Email = 3;
+    string Gender = 4;
+    string Mobile = 5;
+    string Birthdate = 6;
+    string Password = 7;
+    string RePassword = 8;
+}
+
+message MemberUpdate {
+    string ID = 1;
+    string FirstName = 2;
+    string LastName = 3;
+    string Gender = 4;
+    string Birthdate = 5;
+    string Mobile = 6;
+    string Phone = 7;
+    string Ext = 8;
+    string Province = 9;
+    string ProvinceID = 10;
+    string City = 11;
+    string CityID = 12;
+    string District = 13;
+    string DistrictID = 14;
+    string SubDistrict = 15;
+    string SubDistrictID = 16;
+    string ZipCode = 17;
+    string Street1 = 18;
+    string Street2 = 19;
+    string Status = 20;
+}
+
+message MemberPasswordRequest {
+    string ID = 1;
+    string OldPassword = 2;
+    string NewPassword = 3;
+    string RePassword = 4;
+}
+
+message Address {
+    string Province = 1;
+	string ProvinceID = 2;
+	string City = 3;
+	string CityID = 4;
+	string District = 5;
+	string DistrictID = 6;
+	string SubDistrict = 7;
+	string SubDistrictID = 8;
+	string ZipCode = 9;
+	string Street1 = 10;
+	string Street2 = 11;
+}
+
+message SocialMedia {
+    string FacebookID = 1;
+    string GoogleID = 2;
+    string AzureID = 3;
+}
+
+message Member {
+    string ID = 1;
+    string FirstName = 2;
+    string LastName = 3;
+    string Email = 4;
+    string Gender = 5;
+    string Mobile = 6;
+    string Phone = 7;
+    string Ext = 8;
+    string Birthdate = 9;
+    Address Address = 10;
+    string JobTitle = 11;
+    string Department = 12;
+    string Status = 13;
+    SocialMedia SocialMedia = 14;
+    bool IsAdmin = 15;
+    bool IsStaff = 16;
+    string SignUpFrom = 17;
+    bool HasPassword = 18;
+    string LastLogin = 19;
+    int32 Version = 20;
+    string Created = 21;
+    string LastModified = 22;
+    string LastBlocked = 23;
+}
+
+service MemberService {
+    rpc Register(MemberRegister) returns (ResponseMessage);
+    rpc Update(MemberUpdate) returns (ResponseMessage);
+    rpc FindByID(MemberQuery) returns (Member);
+    rpc GetMe(MemberQuery) returns (Member);
+    rpc UpdatePassword(MemberPasswordRequest) returns (ResponseMessage);
+}

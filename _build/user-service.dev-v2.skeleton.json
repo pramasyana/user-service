@@ -1,0 +1,40 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "user-service-development",
+      "image": "864038710441.dkr.ecr.ap-southeast-1.amazonaws.com/user-service:latest-dev",
+      "cpu": 0,
+      "memoryReservation": 256,
+      "dockerLabels" : {
+        "container" : "user-service-development",
+        "environment" : "development"
+      },
+      "logConfiguration" : {
+        "logDriver": "json-file",
+        "options": {
+          "labels" : "container,environment"
+        }
+      }
+    },
+
+    {
+          "name": "nginx",
+          "image": "nginx",
+          "memoryReservation": 256,
+              "volumesFrom": [
+        {
+          "sourceContainer": "user-service-development"
+        }
+        ],
+        "portMappings": [
+        {
+        "hostPort": 0,
+        "containerPort": 8080
+        }
+        ],
+        "links": [
+        "user-service-development"
+          ]
+        }
+    ]      
+}

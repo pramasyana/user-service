@@ -1,0 +1,24 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "user-service-staging",
+      "image": "864038710441.dkr.ecr.ap-southeast-1.amazonaws.com/user-service:latest-stg",
+      "cpu": 0,
+      "memory": 256,
+      "portMappings": [
+        {
+          "containerPort": 8080
+        }
+      ],
+      "dockerLabels" : {
+        "container" : "user-service-staging",
+        "environment" : "staging"
+      },
+      "logConfiguration" : {
+        "logDriver": "json-file",
+        "options": {
+          "labels" : "container,environment"
+        }
+      }
+    }]      
+}

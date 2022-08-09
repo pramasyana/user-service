@@ -1,0 +1,80 @@
+[
+	{
+		"id": "add_warehouse_params_v2",
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"description": "schema add address v2",
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"minLength": 3,
+				"maxLength": 50
+			},
+			"label": {
+				"type": "string",
+				"minLength": 5,
+				"maxLength": 50
+			},			
+			"phone": {
+				"type": "string",
+				"maxLength": 15
+			},
+			"address": {
+				"type": "string",
+				"maxLength": 255,
+				"minLength": 5
+			},
+			"postalCode": {
+				"type": "string",
+				"maxLength": 5,
+				"minLength": 5
+			},
+			"subdistrictId": {
+				"type": "string"
+			},
+			"subdistrictName": {
+				"type": "string",
+				"maxLength": 100
+			},
+			"districtId": {
+				"type": "string"
+			},
+			"districtName": {
+				"type": "string",
+				"maxLength": 100
+			},
+			"cityId": {
+				"type": "string"
+			},
+			"cityName": {
+				"type": "string",
+				"maxLength": 100
+			},
+			"provinceId": {
+				"type": "string"
+			},
+			"provinceName": {
+				"type": "string",
+				"maxLength": 100
+			},
+			"status":{
+				"type":"string"
+			}
+		},
+		"required": [
+			"name",
+			"label",
+			"address",
+			"postalCode",
+			"subdistrictId",
+			"subdistrictName",
+			"districtId",
+			"districtName",
+			"cityId",
+			"cityName",
+			"provinceId",
+			"provinceName",
+			"status"
+		]
+	}
+]
